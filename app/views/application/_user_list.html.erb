@@ -1,0 +1,23 @@
+<div class="row">
+  <% Circle.all.each do |circle| %>
+  <% next unless circle.active? %>
+  <div class="col-lg-2" style="border: 1px solid #ddd">
+    <b><%= circle.name %></b>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Round</th>
+        <th>Level</th>
+      </tr>
+      <% circle.users.order(:level).each do |user| %>
+      <tr>
+        <td><%= user.insider ? "*" : '' %><%= user.name[0..7] %></td>
+        <td><%= user.round %></td>
+        <td><%= user.level %></td>
+      </tr>
+      <% end %>
+    </table>
+    <br />
+  </div>
+  <% end %>
+</div>

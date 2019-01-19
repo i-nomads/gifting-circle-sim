@@ -1,0 +1,14 @@
+<%= link_to "Reset ALL", action_path(action: 'reset') %> |
+<%= link_to "Next Round", action_path(action: 'next') %>
+
+<br /><br />
+
+Number of users: <%= User.count %> (<%= User.insiders.count %> insiders)<br />
+Total of money gifted: <%= number_to_currency User.sent.count * 40000 %> <br />
+Total of users who gave: <%= User.sent.count %> <br />
+Total of users who got: <%= User.received.count %> (<%= User.received.insiders.count %> insiders) <br />
+Number of circles: <%= Circle.count %><br />
+<br />
+<b>Total BALANCE of insiders (first 5 rounds): <%= number_to_currency User.insiders.sum(:balance) %></b><br />
+<br />
+<%= render 'user_list' %>

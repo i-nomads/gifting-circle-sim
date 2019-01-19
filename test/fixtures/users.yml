@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  round: 1
+  circle: one
+  level: 1
+
+two:
+  name: MyString
+  round: 1
+  circle: two
+  level: 1

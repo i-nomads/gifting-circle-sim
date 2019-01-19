@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: cloud
+
+test:
+  adapter: postgresql
+  database: cloud_test

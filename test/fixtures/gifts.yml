@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from: 1
+  to: 1
+  circle: one
+  round: one
+
+two:
+  from: 1
+  to: 1
+  circle: two
+  round: two

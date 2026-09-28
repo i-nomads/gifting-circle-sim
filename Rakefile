@@ -1,6 +1,15 @@
-# Add your own tasks in files placed in lib/tasks ending in .rake,
-# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+require 'rake/testtask'
 
-require_relative 'config/application'
+Rake::TestTask.new(:test) do |t|
+  t.test_files = FileList['test/**/*_test.rb']
+end
 
-Rails.application.load_tasks
+namespace :db do
+  desc 'Wipe all users and circles and load the seed data'
+  task :reset do
+    require_relative 'app'
+    Seeds.reset!
+  end
+end
+
+task default: :test

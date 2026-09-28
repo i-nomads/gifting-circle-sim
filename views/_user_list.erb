@@ -1,0 +1,22 @@
+<div class="row">
+  <% circles.each do |circle| %>
+  <div class="col-lg-2" style="border: 1px solid #ddd">
+    <b><%= Rack::Utils.escape_html circle.name %></b>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Round</th>
+        <th>Level</th>
+      </tr>
+      <% circle.users.sort_by { |u| [u.level, u.id] }.each do |user| %>
+      <tr>
+        <td><%= user.insider ? "*" : '' %><%= Rack::Utils.escape_html user.name[0..7] %></td>
+        <td><%= user.round %></td>
+        <td><%= user.level %></td>
+      </tr>
+      <% end %>
+    </table>
+    <br />
+  </div>
+  <% end %>
+</div>
